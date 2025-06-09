@@ -525,6 +525,7 @@ header button {
   align-items: center;
   padding: 20px;
   width: 200px;
+  font-family: Manrope;
 }
 
 .contact-form-container {
@@ -545,7 +546,7 @@ header button {
   color: rgb(0, 0, 0);
   font-weight: 500;
   font-size: 18px;
-  border: none;
+  border: #63b6e9 1px solid;
   cursor: pointer;
   height: 40px;
   width: 150px;
