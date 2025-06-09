@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>unHabit</title>
   <link rel="stylesheet" href="style/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav>
@@ -167,35 +173,37 @@
     </div>
     <div class="chatbot-content">
       <div class="chatbot-input-box">
-        <textarea class="chatbot-form" placeholder="Type your message here...">
-        </textarea>
-        <button class="chatbot-send-button">Send</button>
+        <textarea class="chatbot-form" placeholder="Type your message here..."></textarea>
+        <button class="chatbot-send-button">⌕ Send</button>
         </div>
       </div>
       <div class="chatbot-response-box">
         <div class="chatbot-response">
-          <textarea class="chatbot-response-text" placeholder="Chatbot response will appear here..." readonly>
-          </textarea>
+          <textarea class="chatbot-response-text" placeholder="Chatbot response will appear here..." readonly></textarea>
         </div>
       </div>
     </div>
   </section>
-  <contact class="contact-section">
+  <section class="contact-section">
     <div class="contact-header">
       <h2>Contact Us</h2>
       <p>We'd love to hear from you! Reach out with any questions or feedback.</p>
     </div>
-    <div class="socials">
-      <a href="https://www.facebook.com" target="_blank">Facebook</a>
-      <a href="https://www.twitter.com" target="_blank">Twitter</a>
-      <a href="https://www.instagram.com" target="_blank">Instagram</a>
     <div class="contact-content">
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <div class="socials">
+        <button>Facebook</button>
+        <button>X</button>
+        <button>Instagram</button>
+      </div>
+      <div class="contact-form-container">
+        <h3>Get in Touch</h3>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
     </div>
   </section>
   <footer>
