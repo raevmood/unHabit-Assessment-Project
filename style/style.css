@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 50px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: #787676 1px solid;
+}
+
+.logo {
+  margin-left: 20px;
+  font-size: 30px;
+  color: rgb(109, 132, 86);
+  flex: 1;
+  font-weight: bold;
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+  margin-left: 100px;
+}
+
+.middle-nav {
+  width: 80px;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  font-size: 18px;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-left: 400px;
+ 
+}
+
+.right-nav {
+  width: 60px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+header {
+  background-image: url('../assets/home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.header-content {
+  margin-top: 80px;
+  font-size: 32px;
+  width : 968px;
+}
+
+.welcome {
+  color: rgb(0, 0, 0);
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  height: 650px;
+  margin-top: -22.5px;
+}
+
+.about-image-container {
+  width: 600px;
+  height: 600px;
+  margin-right: 20px;
+  background-color: #3B7EA1;
+  margin-top:-5px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image {
+  width: 400px;
+  height: 600px;
+  margin-left: 20px;
+}
+
+.about-content {
+  flex: 1;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+  color: rgb(0, 0, 0);
+  margin-bottom: 100px;
+}
+
+.about-header {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.products-section {
+  font-size: 24px;
+  background-color: #70BEE6;
+  margin-top: -57.5px;
+}
+
+.products-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.product img {
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.product {
+  text-align: center;
+  margin: 20px;
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+
+.faqs {
+  font-size: 24px;
+  background-color: #70BEE6;
+  padding: 20px;
+}
