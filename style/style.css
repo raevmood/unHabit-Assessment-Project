@@ -499,7 +499,7 @@ header button {
 }
 
 .contact-section {
-  height: 500px;
+  height: 513px;
 }
 .contact-header {
   font-size: 36px;
@@ -572,6 +572,12 @@ header button {
   height: 40px;
   width: 100%;
   margin-top: 10px;
+}
+
+.visit {
+  font-size: 24px;
+  background-color: #113d54;
+  color: #ffffff;
 }
 
 footer {

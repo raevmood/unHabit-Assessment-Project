@@ -25,7 +25,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const countDisplay = document.getElementById("visit-counter");
 
+  let visitCount = localStorage.getItem("visitCount");
+
+  if (!visitCount) {
+    visitCount = 0;
+  }
+
+  visitCount = parseInt(visitCount) + 1;
+
+  localStorage.setItem("visitCount", visitCount);
+
+  countDisplay.textContent = visitCount;
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   const inputField = document.querySelector(".chatbot-form");
@@ -45,14 +59,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       console.log("Response:", resp);
 
-      if (resp && resp.choices && resp.choices.length > 0) {
+      if (resp.choices.length > 0) {
         responseField.value = resp.choices[0].message.content;
       } else {
-        responseField.value = "Could not retrieve a valid response.";
+        responseField.value = "Unexpected response. Please try again.";
       }
 
     } catch (error) {
-      console.error("Chatbot error:", error);
       responseField.value = "An error occurred. Please try again later.";
     }
   }
@@ -73,6 +86,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-console.log("Full chatbot response:", resp);
 
 
