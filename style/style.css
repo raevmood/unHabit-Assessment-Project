@@ -5,6 +5,10 @@ body {
   padding-top: 50px;
 }
 
+button {
+  cursor: pointer;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -17,6 +21,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   border: #787676 1px solid;
+  z-index: 1000;
 }
 
 .logo {
@@ -173,8 +178,12 @@ header button {
 .products-content {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   align-items: center;
+  padding: 20px 50px;
+  scroll-behavior: smooth;
+  gap: 30px;
 }
 
 .product img {
@@ -194,6 +203,7 @@ header button {
   padding: 20px;
   width: 300px;
   border-radius: 20px;
+  margin-left: 150px;
 }
 
 .products-section button {
@@ -209,9 +219,44 @@ header button {
   margin-left: 10px;
 }
 
+.scroll-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  align-items: center;
+  position: relative;
+}
+
+.scroll-button {
+  background-color: #000000;
+  color: #fff;
+  border: black 1px solid;
+  font-size: 24px;
+  width: 50px;
+  height: 100px;
+  cursor: pointer;
+}
+
+
+.scroll-button-right {
+  position: relative;
+  right: 0;
+  top: 0;
+}
+
+.scroll-button-left {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.product {
+  flex: 0 0 auto;
+}
+
 .faqs {
   font-size: 24px;
-  background-color: #ffffff;
+  background-color: #3B7EA1;
   padding: 20px;
 }
 
