@@ -215,17 +215,32 @@ header button {
   padding: 20px;
 }
 
+.faqs h2 {
+  font-size: 36px;
+  padding-top: 30px;
+  padding-left: 20px;
+}
+
+.faq {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  width: 800px;
+}
+
 .faqs .question {
   position: relative;
   width: 800px;
   font-weight: 700;
+  font-size: 24px;
 }
 
 .question::after {
   position: absolute;
   content: 'V';
   right: 0;
-  transition: transform 0.3s;
+  transition: transform 0.5s;
 }
 
 .faq.active .question::after {
@@ -235,7 +250,7 @@ header button {
 .faqs-content .answer {
   max-height: 0px;
   overflow: hidden;
-  transition: 200px ease-in-out;
+  transition: max-height 0.5s ease-in-out;
 }
 
 .faq.active .answer {
