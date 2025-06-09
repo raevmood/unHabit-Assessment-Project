@@ -399,7 +399,7 @@ header button {
 
 .chatbot {
   background-color: #70BEE6;
-  height: 600px;
+  height: 750px;
 }
 
 .chatbot-header {
@@ -467,6 +467,34 @@ header button {
 .chatbot-response-box p {
   margin: 0;
   font-size: 16px;
+  color: #ffffff;
+}
+
+.sample-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.sample-question {
+  background-color: #3B7EA1;
+  border: 3px solid #60beed;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sample-questions-header {
+  font-size: 24px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.sample-question:active {
+  background-color: #000000;
   color: #ffffff;
 }
 
