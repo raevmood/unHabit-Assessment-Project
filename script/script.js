@@ -1,90 +1,138 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const faqSection = document.getElementById('faq-section');
-  const faqs = faqSection.querySelectorAll('.faq');
+  initFaqAccordion();
+  initProductScroller();
+  initVisitCounter();
+  initPuterChatbot();
+  initScrollToTopButton();
 
-  faqs.forEach(faq => {
-    faq.querySelector('.question').addEventListener('click', () => {
-      faq.classList.toggle('active');
-     });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollContainer = document.querySelector(".products-content");
-  const scrollLeftButton = document.querySelector(".scroll-button-left");
-  const scrollRightButton = document.querySelector(".scroll-button-right");
-
-  const scrollAmount = 550;
-
-  scrollLeftButton.addEventListener("click", () => {
-    scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  });
-
-  scrollRightButton.addEventListener("click", () => {
-    scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const countDisplay = document.getElementById("visit-counter");
-
-  let visitCount = localStorage.getItem("visitCount");
-
-  if (!visitCount) {
-    visitCount = 0;
+  function initFaqAccordion() {
+    const faqs = document.querySelectorAll('.faq');
+    faqs.forEach(faq => {
+      const question = faq.querySelector('.question');
+      question.addEventListener('click', () => {
+        faqs.forEach(otherFaq => {
+          if (otherFaq !== faq) {
+            otherFaq.classList.remove('active');
+          }
+        });
+        faq.classList.toggle('active');
+      });
+    });
   }
 
-  visitCount = parseInt(visitCount) + 1;
+  function initProductScroller() {
+    const scrollContainer = document.querySelector(".products-content");
+    const scrollLeftButton = document.querySelector(".scroll-button-left");
+    const scrollRightButton = document.querySelector(".scroll-button-right");
+    if (!scrollContainer) return;
+    const scrollAmount = 550;
+    scrollLeftButton.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+    scrollRightButton.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+  }
 
-  localStorage.setItem("visitCount", visitCount);
+  function initVisitCounter() {
+    const countDisplay = document.getElementById("visit-counter");
+    if (!countDisplay) return;
+    let visitCount = localStorage.getItem("unHabitVisitCount") || 0;
+    visitCount = parseInt(visitCount) + 1;
+    localStorage.setItem("unHabitVisitCount", visitCount);
+    countDisplay.textContent = visitCount;
+  }
 
-  countDisplay.textContent = visitCount;
-});
+  async function initPuterChatbot() {
+    const inputField = document.querySelector(".chatbot-form");
+    const sendButton = document.querySelector(".chatbot-send-button");
+    const responseField = document.querySelector(".chatbot-response-text");
+    const sampleQuestions = document.querySelectorAll(".sample-question");
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const inputField = document.querySelector(".chatbot-form");
-  const sendButton = document.querySelector(".chatbot-send-button");
-  const responseField = document.querySelector(".chatbot-response-text");
-  const sampleQuestions = document.querySelectorAll(".sample-question");
+    if (!inputField || !sendButton || !responseField) return;
 
-  const response = await fetch("context.txt");
-  const context = await response.text();
-
-  async function askChatbot(message) {
+    let context = "You are a helpful assistant.";
     try {
-      const resp = await puter.ai.chat([
-        { role: "system", content: context },
-        { role: "user", content: message }
-      ]);
-
-      console.log("Response:", resp);
-
-      if (resp.choices.length > 0) {
-        responseField.value = resp.choices[0].message.content;
-      } else {
-        responseField.value = "Unexpected response. Please try again.";
-      }
-
+      const response = await fetch("context.txt");
+      context = await response.text();
     } catch (error) {
-      responseField.value = "An error occurred. Please try again later.";
+      console.error("Failed to load context.txt:", error);
+      responseField.value = "Error: Could not load my knowledge base. Please contact support.";
+      inputField.disabled = true;
+      sendButton.disabled = true;
+      return;
     }
-  }
 
-  sendButton.addEventListener("click", () => {
-    const message = inputField.value.trim();
-    if (message) {
-      askChatbot(message);
+    async function askChatbot(message) {
+      responseField.value = "Thinking...";
+      sendButton.disabled = true;
+      inputField.disabled = true;
+
+      try {
+        const resp = await puter.ai.chat([
+          { role: "system", content: context },
+          { role: "user", content: message }
+        ]);
+
+        if (resp && resp.message && resp.message.content) {
+          responseField.value = resp.message.content;
+        } else {
+          responseField.value = "I received a valid but empty response. Please rephrase your question.";
+          console.log("Unexpected response structure. Full object:", resp);
+        }
+      } catch (error) {
+        console.error("Chatbot API Error:", error);
+        responseField.value = "Sorry, an error occurred while connecting to the AI. Please try again later.";
+      } finally {
+        sendButton.disabled = false;
+        inputField.disabled = false;
+      }
+    }
+
+    sendButton.addEventListener("click", () => {
+      const message = inputField.value.trim();
+      if (message) {
+        askChatbot(message);
+        inputField.value = '';
+      }
+    });
+
+    inputField.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendButton.click();
+      }
+    });
+
+    sampleQuestions.forEach(button => {
+      button.addEventListener("click", () => {
+        const question = button.textContent;
+        inputField.value = question;
+        askChatbot(question);
+      });
+    });
+  }
+});
+
+function initScrollToTopButton() {
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  if (!scrollTopBtn) return; 
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
     }
   });
 
-  sampleQuestions.forEach(button => {
-    button.addEventListener("click", () => {
-      const question = button.textContent;
-      inputField.value = question;
-      askChatbot(question);
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   });
-});
-
+}
 
 

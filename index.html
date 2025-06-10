@@ -18,10 +18,10 @@
       unHabit
     </div>
     <div class="middle-section">
-      <button class="middle-nav">Home</button>
-      <button class="middle-nav">About</button>
-      <button class="middle-nav">Contact</button>
-      <button class="middle-nav">Resources</button>
+      <a class="middle-nav" href="#Home">Home</a>
+      <a class="middle-nav" href="#About">About</a>
+      <a class="middle-nav" href="#Contact">Contact</a>
+      <a class="middle-nav" href="#Resources">Resources</a>
     </div>
     <div class="right-section">
       <button class="right-nav">Help</button>
@@ -29,13 +29,13 @@
       </div>
   </nav>
   <header>
-    <div class="header-content">
+    <div id="Home" class="header-content">
       <h1 class="welcome">Welcome,<br>to unHabit</h1>
       <p>At unHabit, we are dedicated to guiding you through the process of overcoming addictions and self-destructive habits. Together, we can build a healthier future filled with support</p>
       <button class="button">Sign Up</button>
     </div>
   </header>
-  <section id="about" class="about-section">
+  <section id="About" class="about-section">
     <div class="about-content">  
       <h2 class="about-header">What is unHabit?</h2>
       <p>unHabit is an accountability-focused organization dedicated to helping members stay on track in their addiction recovery journey. The idea was born out of the low retention and high relapse rates often seen in traditional rehab centers, where many individuals fall back into harmful habits.</p>
@@ -48,7 +48,7 @@
       <img src="assets/about.jpg" class="about-image"/>
     </div>
   </section>
-  <section id=products class="products-section">
+  <section id="Resources" class="products-section">
     <div class="products-header">
       <h2>Discover Your Path to Recovery with<br>unHabit's Supportive Services</h2>
     </div>
@@ -84,7 +84,7 @@
       <button class="scroll-button scroll-button-right">→</button>
     </div>
   </section>
-  <section class=faqs id="faq-section">
+  <section class="faqs" id="faq-section">
     <div class="faqs-header">
       <h2>Frequently Asked Questions<br>about unHabit</h2>
     </div>
@@ -198,16 +198,16 @@
       </div>
     </div>
   </section>
-  <section class="contact-section">
+  <section id="Contact" class="contact-section">
     <div class="contact-header">
       <h2>Contact Us</h2>
       <p>We'd love to hear from you! Reach out with any questions or feedback.</p>
     </div>
     <div class="contact-content">
       <div class="socials">
-        <button>Facebook</button>
-        <button>X</button>
-        <button>Instagram</button>
+        <a href="facebook.com">Facebook</a>
+        <a href="x.com">X</a>
+        <a href="instagram.com">Instagram</a>
       </div>
       <div class="contact-form-container">
         <h3>Get in Touch</h3>
@@ -219,7 +219,14 @@
         </form>
       </div>
     </div>
-    <p class="visit">You’ve visited this site <span id="visit-counter">0</span> times.</p>
+    <button id="scrollTopBtn" class="scroll-top-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+    <div class="visit"
+      <p class="visit">You’ve visited this site <span id="visit-counter">0</span> times.</p>
+    </div>
   </section>
   <footer>
     <div class="footer-info">

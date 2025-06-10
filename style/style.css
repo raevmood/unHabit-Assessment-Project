@@ -1,12 +1,33 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Manrope, Inter, Arial;
   padding-top: 50px;
 }
 
 button {
   cursor: pointer;
+}
+
+button.hover{
+  background-color: #70BEE6;
+  color: rgb(255, 255, 255);
+}
+
+.button {
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.product-button:hover,
+.socials-button:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
 }
 
 nav {
@@ -22,12 +43,14 @@ nav {
   align-items: center;
   border: #787676 1px solid;
   z-index: 1000;
+  justify-content: space-between;
 }
 
 .logo {
   margin-left: 20px;
   font-size: 40px;
-  color: rgb(109, 132, 86);
+  font-family: 'Manrope', Arial, sans-serif;
+  color: #70BEE6;
   flex: 1;
   font-weight: bold;
 }
@@ -41,18 +64,28 @@ nav {
 
 .middle-nav {
   width: 80px;
-  height: 50px;
+  height: 20px;
   background-color: rgb(255, 255, 255);
   border: none;
   font-size: 18px;
 }
 
+nav a {
+  text-decoration: none;
+  padding: 12px 20px;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
 .right-section {
   display: flex;
   flex-direction: row;
-  flex: 1;
-  margin-left: 400px;
- 
+  margin-left: 350px;
 }
 
 .right-nav {
@@ -63,6 +96,12 @@ nav {
   border: none;
   font-size: 18px;
   color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.right-nav:hover {
+  background-color: #70BEE6;
+  color: rgb(255, 255, 255);
 }
 
 header {
@@ -97,7 +136,7 @@ header button {
 }
 
 .header-content {
-  margin-top: 80px;
+  margin-top: 30px;
   font-size: 32px;
   width : 968px;
 }
@@ -172,7 +211,7 @@ header button {
 .products-section h2 {
   font-size: 36px;
   padding-top: 50px;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 
 .products-content {
@@ -181,7 +220,7 @@ header button {
   flex-wrap: nowrap;
   overflow-x: auto;
   align-items: center;
-  padding: 20px 50px;
+  padding: 20px 0px;
   scroll-behavior: smooth;
   gap: 30px;
 }
@@ -256,7 +295,7 @@ header button {
 
 .faqs {
   font-size: 24px;
-  background-color: #3B7EA1;
+  background-color: #70BEE6;
   padding: 20px;
 }
 
@@ -268,8 +307,12 @@ header button {
 
 .faq {
   margin: 20px;
-  padding: 20px;
-  background-color: #f4f4f4;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #000000;
+  color: #ffffff;
   border-radius: 10px;
   width: 800px;
 }
@@ -278,7 +321,8 @@ header button {
   position: relative;
   width: 800px;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
+  height: 15px;
 }
 
 .question::after {
@@ -296,10 +340,12 @@ header button {
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
+  font-size: 18px;
 }
 
 .faq.active .answer {
-  max-height: 200px;
+  max-height: 60px;
+  font-size: 18px;
 }
 
 .testimonials {
@@ -307,6 +353,7 @@ header button {
   background-color: #70BEE6;
   padding: 20px;
   border: #000000 1px solid;
+  color: #ffffff;
 }
 
 .testimonial-roll {
@@ -322,6 +369,11 @@ header button {
   background-color: #3B7EA1;
   padding: 20px;
   border-radius: 10px;
+  color: black;
+}
+
+.stars {
+  color: #ffffff;
 }
 
 .values {
@@ -370,12 +422,13 @@ header button {
 }
 
 .team {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 700;
   background-color: #ffffff;
   padding: 20px;
-  height: 750px;
+  height: 600px;
   border-bottom: #000000 3px solid;
+  font-family: Manrope;
 }
 
 
@@ -387,24 +440,26 @@ header button {
 }
 
 .team-pic {
-  width: 334px;
-  border-radius: 200px;
+  width: 250px;
+  border-radius: 100px;
 }
 
 .team-member {
   text-align: center;
-  margin: 20px;
-  padding: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px;
 }
 
 .chatbot {
   background-color: #70BEE6;
-  height: 750px;
+  height: 650px;
 }
 
 .chatbot-header {
   font-size: 36px;
-  padding: 40px;
+  padding: 10px;
+  padding-left: 30px;
   line-height: 0.75;
 }
 
@@ -453,7 +508,7 @@ header button {
 
 .chatbot-response-text {
   width: 900px;
-  height: 150px;
+  height: 100px;
   min-height: 100px;
   padding: 20px;
   background-color: #f4f4f4;
@@ -542,12 +597,16 @@ header button {
 }
 
 
-.socials button {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
+.socials a {
+  text-decoration: none;
+  text-align: center;
+  background-color: #47abdd;
+  padding-top: 10px;
+  color: rgb(255, 255, 255);
   font-weight: 500;
   font-size: 18px;
-  border: #63b6e9 1px solid;
+  border: #cbcaca 3px solid;
+  border-radius: 10%;
   cursor: pointer;
   height: 40px;
   width: 150px;
@@ -576,10 +635,41 @@ header button {
   margin-top: 10px;
 }
 
+.scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; 
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.scroll-top-button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 .visit {
-  font-size: 24px;
+  font-size: 18px;
   background-color: #113d54;
   color: #ffffff;
+  height: 150px;
+  width: 400px;
+  margin-left: 900px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 footer {
@@ -606,3 +696,17 @@ footer {
 footer p {
   margin-left: 10px;
 }
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .about-image-container {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
