@@ -23,9 +23,7 @@ button.hover{
   transition: background-color 0.3s ease;
 }
 
-.button:hover,
-.product-button:hover,
-.socials-button:hover {
+.button:hover {
   background-color: #000000;
   color: rgb(255, 255, 255);
 }
