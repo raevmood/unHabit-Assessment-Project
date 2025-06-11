@@ -633,6 +633,32 @@ header button {
   margin-top: 10px;
 }
 
+.scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; 
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.scroll-top-button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 .visit {
   font-size: 18px;
   background-color: #113d54;

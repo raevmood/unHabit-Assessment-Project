@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initProductScroller();
   initVisitCounter();
   initPuterChatbot();
+  initScrollToTopButton();
 
   function initFaqAccordion() {
     const faqs = document.querySelectorAll('.faq');
@@ -113,5 +114,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function initScrollToTopButton() {
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  if (!scrollTopBtn) return; 
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
 
 
